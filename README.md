@@ -1,70 +1,151 @@
-# Getting Started with Create React App
+# Setup (Done)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Set up a new React.js project using Create React App or your preferred method.
+Create the necessary project structure, including components and folders for organization.
 
-## Available Scripts
+# User Login (Done)
 
-In the project directory, you can run:
+Create a login form component to capture user credentials (e.g., username and password).
+Handle form submission and validate the inputs.
+Communicate with the backend API to authenticate the user.
+Store the authentication token or session information in the browser's local storage or state management solution.
 
-### `npm start`
+# Monetization
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Integrate a payment gateway or service to handle monetization. Popular options include Stripe, PayPal, or a custom solution provided by your backend team.
+Implement the necessary components and logic for users to subscribe, upgrade their plans, or make payments.
+Handle the payment processing flow, such as capturing payment details and communicating with the backend API to update the user's subscription status.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# Image Upload and Background Removal
 
-### `npm test`
+Create an image upload component where users can select an image to upload.
+Implement the necessary logic to handle file uploads and communicate with the backend API to send the image.
+Display a loading indicator or progress bar while the image is being processed.
+Retrieve the processed image URL or ID from the API response.
+Provide a download link or button to allow users to download the removed background image.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Edit Tool (Optional)
 
-### `npm run build`
+Implement an editing component where users can modify the removed background image.
+Provide tools or options for selecting areas to keep or restore in the image.
+Handle the user's edits and communicate with the backend API to update the image accordingly.
+Display the modified image and provide a download link or button for the edited version.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Error Handling and Notifications
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Implement error handling mechanisms throughout the application to catch and display errors to the user.
+Create notification components to provide feedback on successful operations or display error messages.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+# User Login Functionality in React.js Application
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+To achieve the User Login functionality in your React.js application, you can follow these steps:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Create a Login Form Component:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1. Inside your `components` folder, create a new folder called `Login`.
+2. In the `Login` folder, create a file called `LoginForm.js`.
+3. Implement the login form component in `LoginForm.js` using HTML and React.js JSX. The form should capture user credentials such as username and password.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Handle Form Submission and Input Validation:
 
-## Learn More
+1. Inside the `handleSubmit` function, you can perform input validation to ensure that the required fields are not empty and meet any specific validation criteria.
+2. If the inputs are valid, you can proceed with the login process.
+3. If there are any validation errors, you can display appropriate error messages to the user.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Communicate with the Backend API:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. In the `services` folder, create a file called `auth.js` (or use an existing file) to handle API communication related to authentication.
+2. Implement a function, such as `login`, which sends a request to the backend API to authenticate the user. You can use libraries like Axios or the built-in Fetch API to make the API request.
+3. Pass the user's credentials (username and password) as parameters in the API request and handle the API response accordingly (e.g., checking if the login was successful).
 
-### Code Splitting
+## Store Authentication Token or Session Information:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+1. If the login is successful, the backend API will typically respond with an authentication token or session information.
+2. To store this information, you can use the browser's local storage or a state management solution like Redux or React Context.
+3. In the `login` function within `auth.js`, retrieve the authentication token or session information from the API response.
+4. Store the token or session information in the browser's local storage or in the state management solution for future use.
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```
+# Image Upload and Background Removal
+```
 
-### Making a Progressive Web App
+# Image Upload and Background Removal
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+To implement image upload and background removal functionality, you can follow these steps:
 
-### Advanced Configuration
+1. Create an ImageUpload component:
+   - Design a component that allows users to select an image file using an input element or a drag-and-drop area.
+   - Add an event listener to handle the file selection and store the selected file in the component's state.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+2. Handle file upload:
+   - Use an HTTP library like Axios to send a POST request to your backend API, including the selected image file as form data.
+   - Display a loading indicator or progress bar to indicate that the image is being uploaded.
 
-### Deployment
+3. Process the image on the backend:
+   - Implement the necessary logic on the backend to receive the image file, perform background removal using a suitable algorithm or service, and return the processed image URL or ID as a response.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+4. Handle the API response:
+   - In the frontend, handle the API response from the backend.
+   - If the response includes the processed image URL or ID, store it in the component's state.
+   - Hide the loading indicator or progress bar.
 
-### `npm run build` fails to minify
+5. Display the processed image:
+   - Render the processed image using the URL or ID stored in the component's state.
+   - Provide a download link or button that allows users to download the removed background image.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
+## Title: Implement Editor Features for Image Processing
+
+**Description:**
+As a user, I want to be able to upload an image and perform various operations on it using the Editor feature. The Editor should consist of the following sections and functionalities:
+
+**Original Image Section:**
+
+- Display the uploaded original image.
+- Allow users to view and compare the original image with the processed image.
+
+**Processed Image Section:**
+
+- Display the image with the background removed.
+- Provide an edit option to choose different backgrounds for the image.
+
+**Preview:**
+
+- Allow users to preview the processed image.
+
+**Download HD:**
+
+- Provide an option to download the processed image in high definition.
+
+**Rating:**
+
+- Enable users to rate the quality of the processed image.
+- Include happy smiley and sad smiley icons for rating.
+
+**Libraries:**
+If necessary, you may consider using the following libraries to implement the Editor features:
+
+- React Dropzone: A library for handling file uploads.
+- Axios: A library for making HTTP requests to the server for image processing and retrieval.
+- React Modal: A library for displaying the image editing options in a modal or dialog box.
+- React Rating: A library for implementing the rating functionality with smiley icons.
+
+**Acceptance Criteria:**
+
+- Users can upload an image and view it in the Original Image section.
+- The image is processed to remove the background, and the processed image is displayed in the Processed Image section.
+- Users can choose to edit the processed image and select different backgrounds.
+- The edited image is displayed in the Processed Image section.
+- Users can preview the processed image.
+- Users can download the processed image in high definition.
+- Users can rate the quality of the processed image using smiley icons.
+
+**Note:** Ensure that the Editor features are implemented with a user-friendly interface and provide clear instructions and feedback to the user throughout the process.
+
+**Priority:** Medium
+
+**Estimated Story Points:** 5
