@@ -1,3 +1,21 @@
+# BackGround Remover
+
+## Domain Naming
+```
+bgout.com
+bgnomore.com
+clearbg.com 89k rs
+clearbg.in is cheap
+bgfree.in is cheap
+bgfree.co
+bgfree.design
+bgvanish.com
+bgfasak.com
+NoBGFasak.com
+nobg.in
+
+```
+
 # Setup (Done)
 
 Set up a new React.js project using Create React App or your preferred method.
