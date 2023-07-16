@@ -1,13 +1,20 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const TopBar = () => {
   const [loggedIn, setLoggedIn] = useState(false); // Track the login status
 
+  useEffect(() => {
+    if (localStorage.getItem("access_token")) {
+      setLoggedIn(true);
+    }
+  }, [setLoggedIn]);
+
   const handleLogout = () => {
     // Perform the logout action
     // For example, clear the access token from local storage and update the login status
-    localStorage.removeItem('access_token');
+    localStorage.removeItem("access_token");
     setLoggedIn(false);
   };
 
@@ -19,6 +26,7 @@ const TopBar = () => {
         <div className="profile-dropdown">
           <button className="profile-button">Profile</button>
           <div className="dropdown-content">
+            {/* eslint-disable-next-line */}
             <a href="#" onClick={handleLogout}>
               Logout
             </a>
