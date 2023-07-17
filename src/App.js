@@ -1,19 +1,23 @@
-import React from 'react';
-import './App.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import TopBar from './components/TopBar/TopBar';
-import HomePage from './components/HomePage/HomePage';
-import LoginForm from './components/Login/LoginForm';
-import ImageUpload from './components/Editor/ImageUpload';
+import React from "react";
+import "./App.css";
+import { Routes, Route } from "react-router-dom";
+import TopBar from "./components/TopBar";
+import HomePage from "./pages/HomePage/HomePage";
+// import LoginForm from "./pages/Login/LoginForm";
+import ImageUpload from "./pages/Editor/ImageUpload";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import AuthRouting from "./components/authRouting";
 
 function App() {
   return (
     <div>
+      <ToastContainer />
       <TopBar />
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/login" element={<LoginForm />} />
-        <Route path="/upload" element={<ImageUpload />} />
+        <Route path="/" exact element={<HomePage />} />
+        <Route path="/upload" exact element={<ImageUpload />} />
+        <Route path="/auth/*" exact element={<AuthRouting />} />
       </Routes>
     </div>
   );
