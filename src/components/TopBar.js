@@ -1,21 +1,19 @@
-import React, { useState } from "react";
-import { useEffect } from "react";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { authActions } from "../store/authSlice";
 
 const TopBar = () => {
-  const [loggedIn, setLoggedIn] = useState(false); // Track the login status
-
-  useEffect(() => {
-    if (localStorage.getItem("access_token")) {
-      setLoggedIn(true);
-    }
-  }, [setLoggedIn]);
+  const loggedIn = useSelector((x) => x.auth.value) ? true : false;
+  const dispatch = useDispatch();
 
   const handleLogout = () => {
     // Perform the logout action
     // For example, clear the access token from local storage and update the login status
     localStorage.removeItem("access_token");
-    setLoggedIn(false);
+    // setLoggedIn(false);
+    dispatch(authActions.logout());
+    window.location = "/";
   };
 
   return (
@@ -23,21 +21,26 @@ const TopBar = () => {
       <div className="logo">Logo</div>
       <div className="pricing">Pricing</div>
       {loggedIn ? (
-        <div className="profile-dropdown">
-          <button className="profile-button">Profile</button>
-          <div className="dropdown-content">
-            {/* eslint-disable-next-line */}
-            <a href="#" onClick={handleLogout}>
-              Logout
-            </a>
+        <>
+          <Link to="/upload" className="upload">
+            Upload
+          </Link>
+          <div className="profile-dropdown">
+            <button className="profile-button">Profile</button>
+            <div className="dropdown-content">
+              {/* eslint-disable-next-line */}
+              <a href="#" onClick={handleLogout}>
+                Logout
+              </a>
+            </div>
           </div>
-        </div>
+        </>
       ) : (
         <>
-          <Link to="/login" className="login">
+          <Link to="/auth/login" className="login">
             Login
           </Link>
-          <Link to="/signup" className="signup">
+          <Link to="/auth/signup" className="signup">
             Signup
           </Link>
         </>

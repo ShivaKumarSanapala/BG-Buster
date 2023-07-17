@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { getProcessedImage, upload } from "../../services/imgService";
 
 const ImageUpload = () => {
+  console.log("fhaeufheufh");
+
   const [selectedImage, setSelectedImage] = useState(null);
   const [processedImage, setProcessedImage] = useState(null);
   const [loading, setLoading] = useState(false);
